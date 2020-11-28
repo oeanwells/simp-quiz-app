@@ -1,59 +1,34 @@
-'use strict'
-/**
- * Example store structure
- */
-const store = {
-  // 5 or more questions are required
-  questions: [
-    {
-      question: 'What color is broccoli?',
-      answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
-      ],
-      correctAnswer: 'green'
-    },
-    {
-      question: 'What is the current year?',
-      answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
-      ],
-      correctAnswer: '2019'
-    }
-  ],
-  quizStarted: false,
-  questionNumber: 0,
-  score: 0
-};
+'use strict';
+/////////////////////
+// Section 1: Rendering Functions // functions that update the HTML according to the state stored in javascript 
+////////////////////
+// These are a set of functions that update the HTML according to the 
+// state stored in our javascript variables. These functions are called via the functions in the event callback section. 
 
-/**
- * 
- * Technical requirements:
- * 
- * Your app should include a render() function, that regenerates the view each time the store is updated. 
- * See your course material and access support for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- * 
- */
+// The start/menu screen is rendered , called at the beginning of 
+// the program on page load. 
+function renderStartPage () {
+  $("main").html(`
+  <section class="startPage">
+    <h1>Are you a SIMP? Don't know? Then find out!</h1>
+    <button type="button" class="startButton">Begin</button>
+  </section>
+  `)
+}
 
-/********** TEMPLATE GENERATION FUNCTIONS **********/
 
-// These functions return HTML templates
+//Section 2: Event callback functions//
+// Here we listen to events, employing event delegation as html will 
+// change at different parts of the quiz. 
 
-/********** RENDER FUNCTION(S) **********/
-
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-
-/********** EVENT HANDLER FUNCTIONS **********/
-
-// These functions handle events (submit, click, etc)
+// Here we listen for when the users clicks a startButton class element, 
+// and bring them to the first question of the quiz, making sure their 
+// score is reset
+function handleStartQuiz () {
+  $("main").on("click", ".startButton", event => {
+    currentScore = 0;
+    currentQuestion = 0;
+    //updateScore();
+    //renderQuestion();
+  })
+}
