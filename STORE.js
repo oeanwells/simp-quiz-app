@@ -28,7 +28,8 @@ const quizQuestions = [
     question: 'Big spoon or little spoon?',
     answer1: 'Big spoon',
     answer2: 'Little spoon',
-    answer3: 'Why are we talking about spoons?'
+    answer3: 'Why are we talking about spoons?',
+    answer4: 'Why not both?'
   },
   {
     question: 'Your s/o says they\'re cold, what do you do?',

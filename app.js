@@ -95,7 +95,10 @@ function updateScore() {
   $('.questionNumber').html(questionNum)
 }
 
+
+///////////////////////////////////////
 //Section 2: Event callback functions//
+/////////////////////////////////////////
 // Here we listen to events, employing event delegation as html will 
 // change at different parts of the quiz. 
 
@@ -106,15 +109,15 @@ $(function handleSetup() {
   renderStartPage();
   handleStartQuiz();
   handleAnswerSubmit();
-  //handleNextQuestion();
-  //updateScore();
+  handleNextQuestion();
+  updateScore();
 }
 );
 function handleStartQuiz () {
   $("main").on("click", ".startButton", event => {
     currentScore = 0;
     currentQuestion = 0;
-    //updateScore();
+    updateScore();
     renderQuestion();
   });
 }  
@@ -133,6 +136,15 @@ function handleAnswerSubmit() {
     renderAnswer(answer, getCorrectAnswer(currentQuestion), getExplanation(currentQuestion));
   });
 }
+
+function handleNextQuestion () {
+  $('main').on('click', '.nextQuestion', event => {
+    currentQuestion++;
+
+    renderQuestion();
+  });
+}
+
 
 /////////////////////////////////
 // Section 3: Utility Functions
