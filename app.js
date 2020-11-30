@@ -87,12 +87,32 @@ function renderAnswer (answer, correctAnswer, explanation) {
 
 }
 
+function renderFeedback() {
+  let won = getScore() == getTotalNumQuestions();
+
+  $('main').html(`
+  <section class="feedbackScreen">
+  <h1 class="">${won ? "You passed the SIMP Quiz!" : "I'm very sorry, but. you. Are. A. SIIIIIIIMP."}</h1>
+    <img src="">
+    <br>
+    <br>
+    <div><span class="">Final Score</span>: <span class="score">${getScore()}</span>/${getTotalNumQuestions()}</div>
+    <br>
+    <div>
+      ${won ? "You have demonstrated your worth and walk proudly down the righteous path." : "Go hug your waifu pillow. You disgust me. Take the quiz again if you want any chance at redemption."}
+    </div>
+    <br>
+    <button type="button" class="startButton">Play Again</button>
+    </section>
+  `);
+}
+
 function updateScore() {
   $('.score').html(currentScore);
 
   let questionNum = currentQuestion + 1;
   questionNum = Math.min(questionNum, getTotalNumQuestions());
-  $('.questionNumber').html(questionNum)
+  $('.questionNumber').html(questionNum);
 }
 
 
@@ -140,8 +160,14 @@ function handleAnswerSubmit() {
 function handleNextQuestion () {
   $('main').on('click', '.nextQuestion', event => {
     currentQuestion++;
+    updateScore();
 
-    renderQuestion();
+    if (currentQuestion >= quizQuestions.length) {
+      renderFeedback();
+    }
+    else {
+      renderQuestion();
+    }
   });
 }
 
@@ -173,4 +199,7 @@ function checkAnswer(answer, questionNumber) {
 	return correctAnswer == answer;
 }
 
+function getScore () {
+  return currentScore;
+}
 
