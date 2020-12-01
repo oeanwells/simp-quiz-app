@@ -11,6 +11,8 @@ function renderStartPage () {
   $("main").html(`
   <section class="startPage">
     <h1>Are you a SIMP? Don't know? Then find out!</h1>
+    <img src="start-page-simp-pic.jpg">
+    <br>
     <button type="button" class="startButton">Begin</button>
   </section>
   `);
@@ -24,8 +26,8 @@ function renderQuestion () {
   $("main").html(`
   <section class="questionBackground">
     <form class="questionForm">
-      <fieldset class="radio">
-        <legend>${question.question}</legend>
+      <fieldset class="radio" >
+        <legend><h2>${question.question}</h2></legend>
         <label>
           <input type="radio" value="${question.answer1}" name="answer" required>
           ${question.answer1}
