@@ -60,8 +60,9 @@ function renderAnswer (answer, correctAnswer, explanation) {
   //Correct Answer
   if (answer === correctAnswer) {
     $('main').html(`
-    <section class="answerRightScreen">
-      <h1 class="">Correct!</h1>
+    <section class="answerScreen">
+      <h1>Correct!</h1>
+      <img src="man-of-culture.jpg">
       <div class="">The answer is:</div>
       <div>${correctAnswer}</div>
       <div>${explanation}</div>
@@ -73,8 +74,9 @@ function renderAnswer (answer, correctAnswer, explanation) {
   //Wrong Answer
   else {
     $('main').html(`
-    <section class="answerRightScreen">
+    <section class="answerScreen">
       <h1 class="">Wrong Answer!</h1>
+      <img src="skinner-pathetic.jpeg">
       <div class="">Your answer was:</div>
       <div>${answer}</div>
       <br>
