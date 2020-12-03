@@ -2,7 +2,7 @@ body {
   background-color: #d2b4b4;
   text-align: center;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 header {
@@ -11,10 +11,13 @@ header {
   text-align: center;*/
 }
 header h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  padding-top: 10px;
+  padding-top: 20px;
   margin-top: 0;
   color: white;
+  font-size: 64px;
+}
+header h1 i {
+  font-size: 24px;
 }
 header div.bar-score-question {
   display: flex;
@@ -29,26 +32,25 @@ header div.bar-score-question ul {
   background-color: #f0e8e8;
   height: 24px;
   box-shadow: 1px 10px 53px 0 rgba(0, 0, 0, 0.5);
-  padding: 10px 0 7px 0;
+  padding: 10px 10px 7px 10px;
 }
 header div.bar-score-question ul li {
   list-style: none;
   padding: 0 10px 0 10px;
   display: inline;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 main {
   background-color: #f0e8e8;
-  margin: 10px 10vw 10px 10vw;
+  margin: 10px 10vw 5vh 10vw;
   border-radius: 20px;
   box-shadow: 1px 10px 53px 0 rgba(0, 0, 0, 0.5);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: auto;
   height: auto;
 }
-main .startPage h1 {
-  padding-top: 20px;
+main .startPage h2 {
+  padding-top: 45px;
+  font-size: 30px;
 }
 main .startPage img {
   width: 20vw;
@@ -66,7 +68,6 @@ main .startPage .startButton {
   display: inline-block;
   cursor: pointer;
   color: #333333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 19px;
   font-weight: bold;
   padding: 10px 50px;
@@ -87,7 +88,7 @@ section.questionBackground form.questionForm fieldset.radio {
 section.questionBackground form.questionForm fieldset.radio legend h2 {
   background: linear-gradient(to right, #245399 30%, #d2b4b4 100%);
   color: white;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px 10px;
 }
 section.questionBackground form.questionForm fieldset.radio label {
@@ -101,7 +102,10 @@ section.questionBackground form.questionForm fieldset.radio label {
   direction: rtl;
   justify-content: space-between;
 }
-section.questionBackground form.questionForm button {
+section.questionBackground form.questionForm fieldset.radio label span {
+  direction: ltr;
+}
+section.questionBackground form.questionForm .next-button {
   background: linear-gradient(to right, #b4d2d2 5%, #d2b4b4 100%);
   background-color: #b4d2d2;
   border-radius: 10px;
@@ -109,7 +113,104 @@ section.questionBackground form.questionForm button {
   display: inline-block;
   cursor: pointer;
   color: #333333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 10px 50px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.answer-font {
+  font-style: italic;
+  font-weight: 600;
+}
+
+section.answerScreen h1 {
+  padding: 10px 10px;
+  margin-top: 40px;
+  color: white;
+}
+section.answerScreen .answer-right {
+  background: linear-gradient(to right, #245399 30%, #d2b4b4 100%);
+}
+section.answerScreen .answer-wrong {
+  background: linear-gradient(to right, #c71e1e 30%, #d2b4b4 100%);
+}
+section.answerScreen img {
+  width: 30vw;
+  height: 20vw;
+  border-radius: 30px;
+  background-color: rgba(210, 180, 180, 0.5);
+  box-shadow: 1px 10px 53px 0 rgba(0, 0, 0, 0.5);
+  margin: 40px 0;
+}
+section.answerScreen div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.answerScreen div .answer-div {
+  display: inline;
+  width: 30vw;
+  padding: 10px 10px;
+  background-color: rgba(180, 210, 210, 0.75);
+}
+section.answerScreen div .wrong {
+  background-color: rgba(199, 30, 30, 0.5);
+}
+section.answerScreen button.nextQuestion {
+  background: linear-gradient(to right, #b4d2d2 5%, #d2b4b4 100%);
+  background-color: #b4d2d2;
+  border-radius: 10px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  color: black;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 10px 50px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+section.feedbackScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.feedbackScreen h1 {
+  background: linear-gradient(to right, #245399 30%, #d2b4b4 100%);
+  color: white;
+  margin-top: 40px;
+  align-self: center;
+  width: 30vw;
+}
+section.feedbackScreen img {
+  width: 30vw;
+  height: 20vw;
+  border-radius: 30px;
+  background-color: rgba(210, 180, 180, 0.5);
+  box-shadow: 1px 10px 53px 0 rgba(0, 0, 0, 0.5);
+  margin: 40px 0;
+}
+section.feedbackScreen div span {
+  display: inline;
+}
+section.feedbackScreen .feedback-div {
+  width: 30vw;
+  padding: 10px 10px;
+  background-color: rgba(180, 210, 210, 0.75);
+}
+section.feedbackScreen button {
+  background: linear-gradient(to right, #b4d2d2 5%, #d2b4b4 100%);
+  background-color: #b4d2d2;
+  border-radius: 10px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  color: black;
   font-size: 19px;
   font-weight: bold;
   padding: 10px 50px;

@@ -10,7 +10,7 @@
 function renderStartPage () {
   $("main").html(`
   <section class="startPage">
-    <h1>Are you a SIMP? Don't know? Then find out!</h1>
+    <h2>Are you a SIMP? Don't know? Then find out!</h2>
     <img src="start-page-simp-pic.jpg">
     <br>
     <button type="button" class="startButton">Begin</button>
@@ -30,26 +30,26 @@ function renderQuestion () {
         <legend><h2>${question.question}</h2></legend>
         <label>
           <input type="radio" value="${question.answer1}" name="answer" required>
-          ${question.answer1}
+          <span>${question.answer1}</span>
         </label>
         <label>
           <input type="radio" value="${question.answer2}" name="answer" required>
-          ${question.answer2}
+          <span>${question.answer2}</span>
         </label>
         <label>
           <input type="radio" value="${question.answer3}" name="answer" required>
-          ${question.answer3}
+          <span>${question.answer3}</span>
         </label>
         <label>
           <input type="radio" value="${question.answer4}" name="answer" required>
-          ${question.answer4}
+          <span>${question.answer4}</span>
         </label>
       </fieldset>
 
-      <button type="submit">Submit</button>
+      <button type="submit" class="next-button">Submit</button>
     </form>
   </section>
-  `)
+  `);
 }
 
 // Now when the user clicks the Submit button, they will be shown the Answer screen
@@ -61,13 +61,15 @@ function renderAnswer (answer, correctAnswer, explanation) {
   if (answer === correctAnswer) {
     $('main').html(`
     <section class="answerScreen">
-      <h1>Correct!</h1>
+      <div><h1 class="answer-right">Correct!</h1></div>
       <img src="man-of-culture.jpg">
-      <div class="">The answer is:</div>
-      <div>${correctAnswer}</div>
-      <div>${explanation}</div>
+      <div class="container">
+        <div class="answer-div">The answer is: <span class="answer-font">${correctAnswer}</span></div>
+        <br>
+        <div class="answer-div">${explanation}</div>
+      </div>
       <br>
-    <button type="button" class="nextQuestion">Next Question</button>
+      <button type="button" class="nextQuestion">Next Question</button>
     </section>
     `);
   }
@@ -75,14 +77,15 @@ function renderAnswer (answer, correctAnswer, explanation) {
   else {
     $('main').html(`
     <section class="answerScreen">
-      <h1 class="">Wrong Answer!</h1>
+      <div><h1 class="answer-wrong">Wrong Answer!</h1></div>
       <img src="skinner-pathetic.jpeg">
-      <div class="">Your answer was:</div>
-      <div>${answer}</div>
+      <div class="container">
+      <div class="answer-div wrong">Your answer was: <span class="answer-font">${answer}</span></div>
       <br>
-      <div class="">The correct answer is:</div>
-      <div>${correctAnswer}</div>
-      <div>${explanation}</div>
+      <div class="answer-div wrong">The correct answer is: <span class="answer-font">${correctAnswer}</span></div>
+      <br>
+      <div class="answer-div wrong">${explanation}</div>
+      </div>
       <br>
     <button type="button" class="nextQuestion">Next Question</button>
     </section>
@@ -96,14 +99,17 @@ function renderFeedback() {
 
   $('main').html(`
   <section class="feedbackScreen">
-  <h1 class="">${won ? "You passed the SIMP Quiz!" : "I'm very sorry, but. you. Are. A. SIIIIIIIMP."}</h1>
-    <img src="">
-    <br>
-    <br>
-    <div><span class="">Final Score</span>: <span class="score">${getScore()}</span>/${getTotalNumQuestions()}</div>
-    <br>
     <div>
-      ${won ? "You have demonstrated your worth and walk proudly down the righteous path." : "Go hug your waifu pillow. You disgust me. Take the quiz again if you want any chance at redemption."}
+      <h1 class="">${won ? "You passed the SIMP Quiz!" : "I'm very sorry, but. you. Are. A. SIIIIIIIMP."}</h1>
+    </div>
+    <img ${won ? "src='virgin-winner.png'" : "src='simp-card.jpg'"}>
+      <br>
+      <br>
+    <div class="feedback-div">
+      <span class="">Final Score</span>: <span class="score">${getScore()}</span>/${getTotalNumQuestions()}</div>
+      <br>
+    <div class="feedback-div">
+      ${won ? "You have demonstrated your worth and walk proudly down the righteous path." : "Actually, not sorry. Go hug your waifu pillow. You disgust me. Take the quiz again if you want any chance at redemption."}
     </div>
     <br>
     <button type="button" class="startButton">Play Again</button>
